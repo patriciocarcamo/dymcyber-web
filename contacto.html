@@ -7,7 +7,7 @@
   <meta name="description" content="Conversemos sobre los desafíos de su organización. Contacte a DyM Cyber para soluciones de ciberseguridad OT adaptadas a sus necesidades.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -116,6 +116,8 @@
             <label class="campo__etiqueta" for="mensaje">¿En qué podemos ayudarle?</label>
             <textarea class="input input--area" id="mensaje" name="mensaje" placeholder="Cuéntenos brevemente su necesidad" required></textarea>
           </div>
+          <!-- Campo trampa contra spam: las personas no lo ven; si un robot lo llena, FormSubmit descarta el mensaje -->
+          <input class="form__trampa" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="boton boton--azul form__enviar" type="submit">Enviar mensaje</button>
         </form>
         <label class="consentimiento">
@@ -125,6 +127,15 @@
         <p class="form__estado" id="form-estado" role="status"></p>
       </div>
     </div>
+
+    <!-- Aviso de confirmación (Figma: "Dialog Body"). Aparece al enviar el formulario -->
+    <dialog class="aviso" id="aviso-enviado" aria-labelledby="aviso-titulo" tabindex="-1">
+      <h2 class="aviso__titulo" id="aviso-titulo">¡Solicitud recibida!</h2>
+      <p class="aviso__texto">Gracias por comunicarte con DyM Cyber.<br>Un especialista evaluará tu mensaje y te contactará a la brevedad.</p>
+      <button class="aviso__cerrar" type="button" aria-label="Cerrar aviso">
+        <img src="imagenes/icono-cerrar.svg" alt="" width="20" height="20">
+      </button>
+    </dialog>
   </main>
 
   <!-- Componente: Footer -->

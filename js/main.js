@@ -22,10 +22,20 @@ document.querySelectorAll("img[data-logo]").forEach((img) => {
 });
 
 // Formulario de contacto: revisa los campos y marca los que tienen error
-// (estado Error del componente Input). Falta definir con el equipo
-// cómo se envía y a qué correo; por ahora solo valida.
+// (estado Error del componente Input). Si todo está bien, envía los datos
+// con FormSubmit (formsubmit.co), que los reenvía por correo, y muestra el
+// aviso "¡Solicitud recibida!".
+// CORREO DE PRUEBA: cambiarlo por el de la empresa cuando el equipo lo confirme.
+// La primera vez que se use un correo, FormSubmit manda un mensaje de
+// activación a ese correo; hay que hacer clic en "Activate Form".
+const CORREO_FORMULARIO = "pcarcamo186@gmail.com";
 const form = document.querySelector("#form-contacto");
 const estado = document.querySelector("#form-estado");
+const aviso = document.querySelector("#aviso-enviado");
+
+if (aviso) {
+  aviso.querySelector(".aviso__cerrar").addEventListener("click", () => aviso.close());
+}
 
 if (form && estado) {
   const casilla = document.querySelector('input[name="consentimiento"]');
@@ -34,7 +44,7 @@ if (form && estado) {
     campo.addEventListener("input", () => campo.classList.remove("input--error"));
   });
 
-  form.addEventListener("submit", (evento) => {
+  form.addEventListener("submit", async (evento) => {
     evento.preventDefault();
     let valido = true;
 
@@ -54,6 +64,41 @@ if (form && estado) {
       casilla.focus();
       return;
     }
-    estado.textContent = "El envío del formulario aún no está configurado.";
+    const boton = form.querySelector(".form__enviar");
+    const textoBoton = boton.textContent;
+    boton.disabled = true;
+    boton.textContent = "Enviando…";
+    estado.textContent = "";
+
+    try {
+      const datos = Object.fromEntries(new FormData(form));
+      const respuesta = await fetch(`https://formsubmit.co/ajax/${CORREO_FORMULARIO}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...datos,
+          _subject: "Nuevo mensaje desde el sitio web de DyM Cyber",
+          _template: "table",
+        }),
+      });
+      const resultado = await respuesta.json();
+
+      if (resultado.success === "true" || resultado.success === true) {
+        form.reset();
+        if (casilla) casilla.checked = false;
+        if (aviso) {
+          aviso.showModal();
+          aviso.focus(); // el foco queda en el aviso y no en la ×
+        }
+      } else {
+        // Por ejemplo, la primera vez: FormSubmit pide activar el correo
+        estado.textContent = resultado.message || "No se pudo enviar el mensaje. Intente de nuevo.";
+      }
+    } catch {
+      estado.textContent = "No se pudo enviar el mensaje. Revise su conexión e intente de nuevo.";
+    } finally {
+      boton.disabled = false;
+      boton.textContent = textoBoton;
+    }
   });
 }

@@ -541,9 +541,17 @@ a { color: inherit; text-decoration: none; }
   border-radius: var(--radio);
   box-shadow: 0 4px 7px rgba(0, 0, 0, .3);
 }
-/* La foto viene cuadrada; Figma la recorta en 137:188 y la amplía */
-.perfil__foto { position: relative; width: 228px; aspect-ratio: 137 / 188; overflow: hidden; }
-.perfil__foto img { position: absolute; max-width: none; width: 175.15%; height: auto; left: -56.7%; top: -14.35%; }
+/* Foto recortada (PNG sin fondo) sobre un degradado de marca, en formato 137:188.
+   Se ve completa (manos incluidas) y apoyada en la base; en Figma iba ampliada al 175 % sobre blanco */
+.perfil__foto {
+  position: relative;
+  width: 228px;
+  aspect-ratio: 137 / 188;
+  overflow: hidden;
+  border-radius: var(--radio);
+  background: linear-gradient(180deg, var(--marca-azul) 0%, var(--marca-navy) 100%);
+}
+.perfil__foto img { position: absolute; max-width: none; width: 147.4%; height: auto; left: -27.4%; bottom: 0; }
 .perfil__datos { padding-top: 30px; color: var(--texto-secundario); }
 .perfil__area { font: 700 20px/1.26 var(--fuente); color: var(--marca-azul); text-transform: uppercase; margin: 0 0 16px; }
 .perfil__nombre { font: 600 18px/1.26 var(--fuente); margin: 0; }
@@ -666,9 +674,44 @@ a { color: inherit; text-decoration: none; }
 .campo { display: flex; flex-direction: column; gap: 8px; }
 .campo__etiqueta { font: var(--cuerpo-medio); color: var(--texto-secundario); }
 .form__enviar { width: 100%; }
+.form__enviar:disabled { opacity: .7; cursor: wait; }
+.form__trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .consentimiento { display: flex; align-items: flex-start; gap: 12px; margin-top: 18px; font: 400 16px/1.4 var(--fuente-ui); cursor: pointer; }
 .consentimiento input { flex: none; width: 16px; height: 16px; margin: 3px 0 0; accent-color: var(--marca-azul); }
 .form__estado { min-height: 20px; margin: 12px 0 0; font: var(--cuerpo-base); color: var(--fondo-celeste); }
+
+/* Componente: Aviso (Figma "Dialog Body", 466 px). Aparece y desaparece sin animación,
+   centrado y sin oscurecer el fondo, como en el video del equipo */
+.aviso {
+  width: min(466px, calc(100% - 32px));
+  max-width: 600px;
+  padding: 32px;
+  border: 1px solid var(--texto-secundario);
+  border-radius: var(--radio);
+  background: var(--fondo-blanco);
+  color: var(--marca-azul);
+  box-shadow: 0 16px 16px -4px rgba(12, 12, 13, .1), 0 4px 2px -4px rgba(12, 12, 13, .05);
+}
+.aviso::backdrop { background: transparent; }
+/* Al abrirse, el foco queda en el aviso (no en la ×) para que no aparezca el anillo de foco */
+.aviso:focus { outline: none; }
+.aviso__cerrar:focus-visible { outline: 2px solid var(--marca-naranja); outline-offset: 2px; }
+/* El aviso usa Inter, como en Figma (viene del kit externo) */
+.aviso__titulo { font: 600 24px/1.2 var(--fuente-ui); letter-spacing: -0.48px; margin: 0 0 12px; }
+.aviso__texto { font: 400 16px/1.4 var(--fuente-ui); margin: 0; }
+.aviso__cerrar {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 0;
+  border-radius: 32px;
+  background: transparent;
+  cursor: pointer;
+}
+.aviso__cerrar:hover { background: var(--fondo-claro); }
 
 /* ---------- Componente: Footer ---------- */
 .footer { background: var(--marca-navy); color: var(--fondo-blanco); }
