@@ -149,15 +149,15 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ---------- Hero (Inicio) ---------- */
-/* Alto 423 px. Foto de 2211x485 px que sobresale 178 px a la derecha, como en Figma */
+/* Alto 423 px. Foto exportada de Figma (1512x485), alineada a la derecha */
 .hero {
   position: relative;
   height: 423px;
   background-color: var(--marca-navy);
   background-image: url("../imagenes/hero.jpg");
   background-repeat: no-repeat;
-  background-size: 2211px 485px;
-  background-position: calc(100% + 178px) 0;
+  background-size: auto 485px;
+  background-position: right top;
   color: var(--texto-claro);
 }
 .hero::before {
@@ -216,7 +216,7 @@ a { color: inherit; text-decoration: none; }
   padding: 48px var(--margen-lateral) 24px;
 }
 .footer__columnas { display: flex; justify-content: space-between; gap: 48px; }
-.footer__marca img { width: 196px; height: auto; }
+.footer__marca img { width: 105px; height: auto; margin-left: 46px; }
 .footer__marca p { font: var(--cuerpo-base); color: var(--fondo-celeste); width: 300px; margin: 16px 0 0; }
 .footer__col h3 { font: var(--tarjeta-titulo); color: var(--marca-naranja); margin: 0 0 10px; }
 .footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
