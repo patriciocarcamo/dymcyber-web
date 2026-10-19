@@ -782,7 +782,9 @@ a { color: inherit; text-decoration: none; }
   .perfil { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
   .perfil__datos { padding-top: 0; }
   .contacto__interior { grid-template-columns: minmax(0, 1fr); }
-  .panel-form { max-width: 381px; }
+  .panel-form { max-width: 560px; }
+  /* Franja de Servicios en una columna: el texto usa todo el ancho */
+  .servicio__titulo, .servicio__texto { max-width: none; }
   .footer__columnas { flex-wrap: wrap; }
 }
 @media (max-width: 640px) {

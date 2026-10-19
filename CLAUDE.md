@@ -21,7 +21,7 @@ Lista de lo que falta resolver antes de subir el sitio. Marcar con [x] lo que se
 - [ ] Redes sociales de DyM:
   - Contacto: Instagram y Facebook sin enlace ni usuario (en Figma dicen "..."). LinkedIn lleva a linkedin.com/company/dymti.
   - Footer: Instagram apunta a @ciber_ot (Grupo Ciber OT); Facebook y LinkedIn tienen `href="#"`.
-- [ ] Nosotros, galería de eventos: 3 de las 5 tarjetas no tienen enlace (`href="#"`).
+- [x] Nosotros, galería de eventos: las 5 tarjetas enlazan a sus publicaciones de LinkedIn.
 - [ ] Footer: confirmar "© 2026 Grupo Ciber OT" y si el menú lleva "Industrias" (está en el footer del Figma, pero no hay página).
 
 ## 4. Decisiones de diseño (actualizar el Figma o el código)
@@ -38,7 +38,8 @@ Lista de lo que falta resolver antes de subir el sitio. Marcar con [x] lo que se
 
 ## 5. Técnico
 - [x] Optimizar imágenes: pasadas a WebP y achicadas a ~2 veces su tamaño en pantalla (de 23 MB a 1,6 MB). Solo logo.png sigue en PNG hasta tener el logo limpio.
-- [ ] Revisar la versión celular página por página (hay una base hecha, sin revisar).
-- [ ] Probar el brillo del fondo de Contacto en Chrome y Edge (necesita WebGPU). En Firefox y Safari queda la imagen fija.
+- [x] Revisar la versión celular página por página (390 px revisado y corregido; menú ☰ probado en el celular).
+- [x] Revisar la versión tablet (768 px).
+- [x] Probar el brillo del fondo de Contacto en Chrome y Edge (funciona). En Firefox y Safari queda la imagen fija.
 - [x] Agregar favicon: "DyM" rojo sobre cuadrado Azul Header (favicon.ico, imagenes/favicon.png y imagenes/apple-touch-icon.png). Rehacerlo cuando llegue el logo limpio.
 - [ ] Revisar que todos los enlaces funcionen antes de subir.

@@ -87,31 +87,11 @@
       </ul>
     </section>
 
-    <!-- Galería de eventos (desliza hacia el lado) -->
+    <!-- Galería de publicaciones de LinkedIn (desliza hacia el lado).
+         Las tarjetas se arman solas desde la lista en js/publicaciones.js:
+         para agregar una publicación, edita ese archivo, no este. -->
     <section class="fondo-navy">
-      <ul class="galeria contenedor" aria-label="Eventos y actividades">
-        <li class="galeria__tarjeta">
-          <img src="imagenes/nos-evento-1.webp" alt="Equipo de DyM Cyber en un evento" width="1600" height="900">
-          <a href="https://lnkd.in/p/dH2SEftA" class="boton-mini boton-mini--naranja" target="_blank" rel="noopener">Conocer más →</a>
-        </li>
-        <li class="galeria__tarjeta">
-          <img src="imagenes/nos-evento-2.webp" alt="Participación de DyM Cyber en un evento" width="1152" height="1536">
-          <a href="https://lnkd.in/p/dhtAeTYK" class="boton-mini boton-mini--naranja" target="_blank" rel="noopener">Conocer más →</a>
-        </li>
-        <!-- En Figma estas tres tarjetas aún no tienen enlace -->
-        <li class="galeria__tarjeta">
-          <img src="imagenes/nos-evento-3.webp" alt="DyM Cyber en un evento de tecnología" width="864" height="1536">
-          <a href="#" class="boton-mini boton-mini--naranja">Conocer más →</a>
-        </li>
-        <li class="galeria__tarjeta">
-          <img src="imagenes/nos-evento-4.webp" alt="DyM Cyber en un evento de la industria" width="800" height="1424">
-          <a href="#" class="boton-mini boton-mini--naranja">Conocer más →</a>
-        </li>
-        <li class="galeria__tarjeta">
-          <img src="imagenes/nos-evento-5.webp" alt="DyM Cyber en una conferencia" width="761" height="1536" style="object-position: 50% 37%">
-          <a href="#" class="boton-mini boton-mini--naranja">Conocer más →</a>
-        </li>
-      </ul>
+      <ul class="galeria contenedor" aria-label="Publicaciones en LinkedIn" data-publicaciones></ul>
     </section>
   </main>
 
@@ -157,5 +137,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/publicaciones.js"></script>
 </body>
 </html>
