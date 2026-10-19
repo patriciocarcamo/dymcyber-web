@@ -7,6 +7,8 @@
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="imagenes/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
+  <!-- Precarga la página del menú al pasar el mouse, para que el cambio sea instantáneo (Chrome y Edge) -->
+  <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }</script>
   <meta name="description" content="Conversemos sobre los desafíos de su organización. Contacte a DyM Cyber para soluciones de ciberseguridad OT adaptadas a sus necesidades.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,15 +82,17 @@
           </li>
         </ul>
 
-        <!-- En Figma Instagram y Facebook no tienen enlace ni usuario (dicen "...") -->
+        <!-- Falta el enlace de Instagram de DyM (en Figma dice "...") -->
         <ul class="redes">
           <li class="red">
             <span class="red__logo"><img src="imagenes/logo-instagram.webp" alt="" width="62" height="62"></span>
             <span class="red__nombre">Instagram</span>
           </li>
           <li class="red">
-            <span class="red__logo"><img src="imagenes/logo-facebook.webp" alt="" width="62" height="62"></span>
-            <span class="red__nombre">Facebook</span>
+            <a class="red__enlace" href="https://www.facebook.com/people/DyM-cyber-TI/61595454421816/" target="_blank" rel="noopener">
+              <span class="red__logo"><img src="imagenes/logo-facebook.webp" alt="" width="62" height="62"></span>
+              <span class="red__nombre">Facebook</span>
+            </a>
           </li>
           <li class="red">
             <a class="red__enlace" href="https://www.linkedin.com/company/dymti/" target="_blank" rel="noopener">
@@ -171,8 +175,8 @@
         <div class="footer__col">
           <h3>Síguenos</h3>
           <ul>
-            <li><a href="https://www.instagram.com/ciber_ot/" target="_blank" rel="noopener">Instagram @ciber_ot</a></li>
-            <li><a href="#" target="_blank" rel="noopener">Facebook Grupo Ciber OT</a></li>
+            <li>Instagram<!-- Pendiente: enlace a la cuenta de DyM --></li>
+            <li><a href="https://www.facebook.com/people/DyM-cyber-TI/61595454421816/" target="_blank" rel="noopener">Facebook DyM Cyber TI</a></li>
             <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>

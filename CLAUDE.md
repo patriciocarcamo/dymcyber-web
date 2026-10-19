@@ -19,8 +19,9 @@ Lista de lo que falta resolver antes de subir el sitio. Marcar con [x] lo que se
 - [ ] Dirección: Contacto dice "Colina, Región Metropolitana" y el footer "Av. del Valle Sur 570, Oficina 401, Huechuraba". Unificar.
 - [ ] Logo limpio. El actual (imagenes/logo.png) trae borde transparente; al cambiarlo, quitar las compensaciones en css/estilos.css (`padding` 39px del header y `margin-left: -17px` del logo del footer).
 - [ ] Redes sociales de DyM:
-  - Contacto: Instagram y Facebook sin enlace ni usuario (en Figma dicen "..."). LinkedIn lleva a linkedin.com/company/dymti.
-  - Footer: Instagram apunta a @ciber_ot (Grupo Ciber OT); Facebook y LinkedIn tienen `href="#"`.
+  - Facebook listo: facebook.com/people/DyM-cyber-TI/61595454421816 (footer y Contacto).
+  - Instagram de DyM: pendiente, falta la cuenta. Hoy dice solo "Instagram" sin enlace, en el footer y en Contacto (se quitó @ciber_ot, que no es de DyM).
+  - LinkedIn: en Contacto lleva a linkedin.com/company/dymti; en el footer tiene `href="#"`.
 - [x] Nosotros, galería de eventos: las 5 tarjetas enlazan a sus publicaciones de LinkedIn.
 - [ ] Footer: confirmar "© 2026 Grupo Ciber OT" y si el menú lleva "Industrias" (está en el footer del Figma, pero no hay página).
 

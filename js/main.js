@@ -21,6 +21,47 @@ document.querySelectorAll("img[data-logo]").forEach((img) => {
   else img.addEventListener("error", usarTexto);
 });
 
+// Animación al hacer scroll: los bloques aparecen suavemente (se desvanecen
+// y suben) cuando entran en pantalla. Para animar otro elemento, agrega su
+// clase a esta lista. No se anima si la persona pidió "reducir movimiento"
+// en su sistema, y si el JavaScript falla todo se ve igual, sin animación.
+const ELEMENTOS_ANIMADOS = [
+  ".titulo-seccion", ".intro__texto", ".pilares__item",
+  ".servicio", ".estandares__titulo", ".estandares__texto", ".norma",
+  ".otriskmap__texto", ".otriskmap__imagen", ".caracteristica", ".ruta__texto", ".linea-tiempo",
+  ".servicios-esp__etiqueta", ".tarjeta-esp", ".modelo__texto", ".paso", ".modelo__resultado",
+  ".hero-nosotros__texto", ".perfil", ".alianza", ".galeria__tarjeta",
+  ".contacto__texto", ".dato", ".red", ".panel-form",
+  ".footer__columnas > *",
+].join(", ");
+
+// Se espera a que la página termine de armarse (la galería de Nosotros
+// la crea js/publicaciones.js, que se carga después de este archivo)
+document.addEventListener("DOMContentLoaded", () => {
+  const reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducirMovimiento || !("IntersectionObserver" in window)) return;
+
+  const observador = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (!entrada.isIntersecting) return;
+      entrada.target.classList.add("animar--visible");
+      observador.unobserve(entrada.target); // se anima una sola vez
+      // Al terminar, se libera la memoria de la tarjeta gráfica que usaba la animación
+      entrada.target.addEventListener("transitionend", () => {
+        entrada.target.style.willChange = "auto";
+      }, { once: true });
+    });
+  }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+
+  document.querySelectorAll(ELEMENTOS_ANIMADOS).forEach((elemento) => {
+    // Los elementos hermanos aparecen uno tras otro (en cascada), máximo 0,48 s de espera
+    const posicion = [...elemento.parentElement.children].indexOf(elemento);
+    elemento.style.transitionDelay = `${Math.min(posicion, 4) * 0.12}s`;
+    elemento.classList.add("animar");
+    observador.observe(elemento);
+  });
+});
+
 // Formulario de contacto: revisa los campos y marca los que tienen error
 // (estado Error del componente Input). Si todo está bien, envía los datos
 // con FormSubmit (formsubmit.co), que los reenvía por correo, y muestra el

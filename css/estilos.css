@@ -80,6 +80,34 @@ a { color: inherit; text-decoration: none; }
   padding: 0 var(--margen-lateral);
 }
 
+/* ---------- Cambio suave entre páginas ---------- */
+/* Al navegar por el menú, la página actual se desvanece y la nueva aparece.
+   El header queda fijo (no parpadea). Funciona en Chrome, Edge y Safari recientes;
+   en los demás navegadores la página cambia como siempre. */
+@view-transition { navigation: auto; }
+.header { view-transition-name: header; }
+/* La página actual sale rápido y la nueva entra después, suave y subiendo un poco
+   (así no se mezclan las dos y el cruce se ve limpio) */
+::view-transition-old(root) { animation: pagina-sale .2s ease-out both; }
+::view-transition-new(root) { animation: pagina-entra .5s cubic-bezier(.22, .61, .36, 1) .12s both; }
+@keyframes pagina-sale { to { opacity: 0; } }
+@keyframes pagina-entra { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
+/* ---------- Animación al hacer scroll ---------- */
+/* js/main.js agrega .animar a los bloques y .animar--visible cuando entran en pantalla.
+   Movimiento corto y lento, con una curva que frena suave al final */
+.animar {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1s cubic-bezier(.22, .61, .36, 1), transform 1.1s cubic-bezier(.22, .61, .36, 1);
+  /* Avisa al navegador que esto se va a mover, para animarlo con la tarjeta gráfica */
+  will-change: opacity, transform;
+}
+.animar--visible { opacity: 1; transform: none; }
+
 /* ---------- Componente: Botón ---------- */
 .boton {
   display: inline-flex;

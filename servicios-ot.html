@@ -7,6 +7,8 @@
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="imagenes/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
+  <!-- Precarga la página del menú al pasar el mouse, para que el cambio sea instantáneo (Chrome y Edge) -->
+  <script type="speculationrules">{ "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }</script>
   <meta name="description" content="Ecosistema tecnológico para infraestructuras industriales: OTRiskmap, la plataforma de DyM Cyber, y una ruta de madurez en ciberseguridad industrial.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,8 +165,8 @@
         <div class="footer__col">
           <h3>Síguenos</h3>
           <ul>
-            <li><a href="https://www.instagram.com/ciber_ot/" target="_blank" rel="noopener">Instagram @ciber_ot</a></li>
-            <li><a href="#" target="_blank" rel="noopener">Facebook Grupo Ciber OT</a></li>
+            <li>Instagram<!-- Pendiente: enlace a la cuenta de DyM --></li>
+            <li><a href="https://www.facebook.com/people/DyM-cyber-TI/61595454421816/" target="_blank" rel="noopener">Facebook DyM Cyber TI</a></li>
             <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>
