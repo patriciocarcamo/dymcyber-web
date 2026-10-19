@@ -37,8 +37,8 @@ Lista de lo que falta resolver antes de subir el sitio. Marcar con [x] lo que se
 - [ ] En Figma, los íconos sol e intercambio de Servicios Especializados están sueltos fuera del frame: moverlos a sus tarjetas.
 
 ## 5. Técnico
-- [ ] Optimizar imágenes (hoy ~25 MB en total). Pasar a WebP y achicar, sobre todo nos-hero.png (5,6 MB), con-fondo.png (3,5 MB) y logo-instagram.png (3,4 MB, se muestra a 62 px).
+- [x] Optimizar imágenes: pasadas a WebP y achicadas a ~2 veces su tamaño en pantalla (de 23 MB a 1,6 MB). Solo logo.png sigue en PNG hasta tener el logo limpio.
 - [ ] Revisar la versión celular página por página (hay una base hecha, sin revisar).
 - [ ] Probar el brillo del fondo de Contacto en Chrome y Edge (necesita WebGPU). En Firefox y Safari queda la imagen fija.
-- [ ] Agregar favicon (ícono de la pestaña).
+- [x] Agregar favicon: "DyM" rojo sobre cuadrado Azul Header (favicon.ico, imagenes/favicon.png y imagenes/apple-touch-icon.png). Rehacerlo cuando llegue el logo limpio.
 - [ ] Revisar que todos los enlaces funcionen antes de subir.

@@ -209,7 +209,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   height: 423px;
   background-color: var(--marca-navy);
-  background-image: url("../imagenes/hero.jpg");
+  background-image: url("../imagenes/hero.webp");
   background-repeat: no-repeat;
   background-size: 1981px auto;
   background-position: right -173px top -508px;
@@ -514,7 +514,7 @@ a { color: inherit; text-decoration: none; }
 .hero-nosotros {
   position: relative;
   min-height: 509px;
-  background: var(--marca-navy) url("../imagenes/nos-hero.png") no-repeat 40% 50% / 121.84% auto;
+  background: var(--marca-navy) url("../imagenes/nos-hero.webp") no-repeat 40% 50% / 121.84% auto;
   color: var(--fondo-blanco);
 }
 .hero-nosotros::before {
