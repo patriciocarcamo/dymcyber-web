@@ -8,20 +8,21 @@ Lista de lo que falta resolver antes de subir el sitio. Marcar con [x] lo que se
 - [ ] Si OTRiskMap es una landing, la plataforma o ambas. Confirmar que existe otriskmap.com (el botón "Conocer más →" de Servicios OT lleva ahí).
 
 ## 2. Formulario de Contacto
-- [ ] Hoy envía con FormSubmit (formsubmit.co) al correo de prueba pcarcamo186@gmail.com (constante `CORREO_FORMULARIO` en js/main.js).
-- [ ] Cambiar al correo de la empresa. Hay que activarlo de nuevo en FormSubmit (llega un correo con "Activate Form") y usar su código alias para no dejar el correo visible en el código.
+- [ ] Hoy envía con FormSubmit (formsubmit.co) al correo de prueba pcarcamo186@gmail.com (constante `CORREO_FORMULARIO` en js/main.js). Al publicar, cambiarlo al correo de la empresa: **dismilka@dymcyber.com** (confirmado por el equipo).
+- [ ] Activar dismilka@dymcyber.com: al primer envío le llega un correo de FormSubmit con "Activate Form"; Dismilka tiene que hacer clic.
+- [ ] Después de activar, reemplazar el correo en js/main.js por el código alias que da FormSubmit, para que no quede visible en el código.
 - [ ] Activar de nuevo en el dominio real después de publicar.
 - [ ] Los correos llegan a spam en Gmail. Solución definitiva: enviar desde el dominio de la empresa (p. ej. formulario@dymcyber.com) con SPF y DKIM verificados. Coordinar con quien administre el dominio en Cloudflare.
 - [ ] El aviso "¡Solicitud recibida!" solo debe quedar si el envío funciona de verdad.
 
 ## 3. Datos reales
 - [ ] Teléfono: en Contacto está +56 9 5379 2691 (viene del Figma). Confirmar.
-- [ ] Dirección: Contacto dice "Colina, Región Metropolitana" y el footer "Av. del Valle Sur 570, Oficina 401, Huechuraba". Unificar.
+- [x] Dirección: "Colina, Región Metropolitana, Chile" en Contacto y en el footer de todas las páginas.
 - [ ] Logo limpio. El actual (imagenes/logo.png) trae borde transparente; al cambiarlo, quitar las compensaciones en css/estilos.css (`padding` 39px del header y `margin-left: -17px` del logo del footer).
 - [ ] Redes sociales de DyM:
   - Facebook listo: facebook.com/people/DyM-cyber-TI/61595454421816 (footer y Contacto).
   - Instagram de DyM: pendiente, falta la cuenta. Hoy dice solo "Instagram" sin enlace, en el footer y en Contacto (se quitó @ciber_ot, que no es de DyM).
-  - LinkedIn: en Contacto lleva a linkedin.com/company/dymti; en el footer tiene `href="#"`.
+  - LinkedIn listo: linkedin.com/company/dymti en Contacto y en el footer.
 - [x] Nosotros, galería de eventos: las 5 tarjetas enlazan a sus publicaciones de LinkedIn.
 - [ ] Footer: confirmar "© 2026 Grupo Ciber OT" y si el menú lleva "Industrias" (está en el footer del Figma, pero no hay página).
 

@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // (estado Error del componente Input). Si todo está bien, envía los datos
 // con FormSubmit (formsubmit.co), que los reenvía por correo, y muestra el
 // aviso "¡Solicitud recibida!".
-// CORREO DE PRUEBA: cambiarlo por el de la empresa cuando el equipo lo confirme.
+// CORREO DE PRUEBA. Al publicar, cambiarlo por el de la empresa: dismilka@dymcyber.com
 // La primera vez que se use un correo, FormSubmit manda un mensaje de
 // activación a ese correo; hay que hacer clic en "Activate Form".
 const CORREO_FORMULARIO = "pcarcamo186@gmail.com";
